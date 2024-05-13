@@ -1,1 +1,2 @@
-import
+from music_controller.music_controller import MusicControll
+from hand_detection.handDetection import
