@@ -1,4 +1,5 @@
 class MusicControll:
+
     def __init__(self, file_name) -> None:
         import pygame
 
@@ -7,8 +8,6 @@ class MusicControll:
         pygame.mixer.init()
 
         self.music_init()
-
-
 
         pass
 
@@ -19,23 +18,18 @@ class MusicControll:
 
         pygame.mixer.music.play()
         pygame.mixer.music.pause()
-        
 
     def music_stop(self):
         #음악 정지
-        
+
         pygame.mixer.music.pause()
-        
-        
 
         return
-    
+
     def music_start(self):
         #음악 시작
-        
-        pygame.mixer.music.play()
 
-        
+        pygame.mixer.music.play()
 
         return
 
@@ -44,7 +38,7 @@ class MusicControll:
         #다음 곡 재생
 
         return
-    
+
     def previous_song(self):
 
         #이전 곡 재생
