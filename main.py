@@ -24,12 +24,12 @@ def PauseMusic():
 
 
 @app.route('/next/')
-def StartMusic():
+def NextMusic():
     music.next_song()
 
 
 @app.route('/previous/')
-def StartMusic():
+def PreviousMusic():
     music.previous_song()
 
 
