@@ -38,7 +38,7 @@ class MusicControll:
         import pygame
         #음악 시작
 
-        pygame.mixer.music.play()
+        pygame.mixer.music.unpause()
 
         return None
 
@@ -46,9 +46,12 @@ class MusicControll:
 
 
         song = self.file_list.pop(0)
+        print('pop', song)       
         self.music_init(self.file_list[0])
+        self.music_start()
 
         self.file_list.append(song)
+        print('insert', song)
 
         return None
 
@@ -59,8 +62,11 @@ class MusicControll:
         Elen = len(self.file_list)
 
         PreviousSong = self.file_list.pop(Elen - 1)
+        print('pop', PreviousSong)
         self.file_list.insert(0, PreviousSong)
+        print('insert', PreviousSong)
 
         self.music_init(self.file_list[0])
+        self.music_start()
 
         return None
