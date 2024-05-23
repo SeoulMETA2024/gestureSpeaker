@@ -2,9 +2,10 @@ import cv2
 from cvzone.HandTrackingModule import HandDetector
 from music_controller.music_controller import MusicControll
 import time
+import requests
 
-MUSICLIST = ['music_1.mp3', 'music_2.mp3', 'music_3.mp3']
-music = MusicControll(MUSICLIST)
+#라즈베리파이 flask 서버 URL 입력
+URL = ""
 
 last_executed = {
     'stop': 0,
@@ -54,23 +55,23 @@ while True:
         current_time = time.time()
 
         if isPinch(dist_1) and (current_time - last_executed['stop'] > delay):
-            music.music_stop()
+            requests.get(URL,"/pause")
             last_executed['stop'] = current_time
             Status = "PAUSE"
             
 
         if isPinch(dist_2) and (current_time - last_executed['start'] > delay):
-            music.music_start()
+            requests.get(URL,"/start")
             last_executed['start'] = current_time
             Status = "PLAY"
 
         if isPinch(dist_3) and (current_time - last_executed['next'] > delay):
-            music.next_song()
+            requests.get(URL,"/next")
             last_executed['next'] = current_time
             Status = "NEXT"
 
         if isPinch(dist_4) and (current_time - last_executed['previous'] > delay):
-            music.previous_song()
+            requests.get(URL,"/previous")
             last_executed['previous'] = current_time
             Status = "BACK"
 
