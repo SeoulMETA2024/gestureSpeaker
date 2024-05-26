@@ -3,9 +3,10 @@ from cvzone.HandTrackingModule import HandDetector
 from music_controller.music_controller import MusicControll
 import time
 import requests
+from requests.exceptions import ConnectionError
 
 #라즈베리파이 flask 서버 URL 입력
-URL = ""
+URL = "http://rasp-flask-server"
 
 last_executed = {
     'stop': 0,
@@ -75,7 +76,14 @@ while True:
             last_executed['previous'] = current_time
             Status = "BACK"
 
-    except:
+    except IndexError:
+        # hands not found
+        # print("ERR: hands not found")
+        pass
+
+    except ConnectionError:
+        # server not connected
+        print("ERR: server not connected")
         pass
 
     if not ret:
