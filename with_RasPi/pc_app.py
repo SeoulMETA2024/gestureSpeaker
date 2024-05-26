@@ -83,7 +83,7 @@ while True:
 
     except ConnectionError:
         # server not connected
-        print("ERR: server not connected")
+        # print("ERR: server not connected")
         pass
 
     if not ret:
