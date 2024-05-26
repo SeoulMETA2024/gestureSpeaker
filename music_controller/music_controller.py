@@ -11,7 +11,7 @@ class MusicControll:
         self.music_init(self.file_list[0])
 
     def music_init(self, music_file) -> None:
-        #기본 음악 불러오기
+        """기본 음악 불러오기"""
 
         pygame.mixer.music.load(music_file)
         pygame.mixer.music.play()
@@ -20,26 +20,27 @@ class MusicControll:
         return None
 
     def music_stop(self) -> None:
-        print('Music Stop')
+        """음악 정지"""
 
-        #음악 정지
+        print('Music Stop')
 
         pygame.mixer.music.pause()
         return None
 
     def music_start(self) -> None:
-        print('Music Start')
+        """음악 시작"""
 
-        #음악 시작
+        print('Music Start')
 
         pygame.mixer.music.unpause()
 
         return None
 
     def next_song(self) -> None:
+        """다음 곡 재생"""
 
         song = self.file_list.pop(0)
-        print('pop', song)       
+        print('pop', song)
         self.music_init(self.file_list[0])
         self.music_start()
 
@@ -49,8 +50,7 @@ class MusicControll:
         return None
 
     def previous_song(self) -> None:
-
-        #이전 곡 재생
+        """이전 곡 재생"""
 
         Elen = len(self.file_list)
 
