@@ -74,7 +74,9 @@ while True:
             last_executed['previous'] = current_time
             Status = "BACK"
 
-    except:
+    except IndexError:
+        # hands not found
+        # print("ERR: hands not found")
         pass
 
     if not ret:
